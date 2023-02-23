@@ -12,7 +12,7 @@ class AlbumsController extends Controller
      */
     public function index()
     {
-        //
+        return view('albums.album');
     }
 
     /**
@@ -20,7 +20,7 @@ class AlbumsController extends Controller
      */
     public function create()
     {
-        //
+        return view('albums.create-album');
     }
 
     /**
