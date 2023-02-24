@@ -12,7 +12,8 @@ class AlbumsController extends Controller
      */
     public function index()
     {
-        return view('albums.album');
+        $albums = Albums::all();
+        return response(view('albums.album', compact('albums')));
     }
 
     /**
@@ -28,7 +29,14 @@ class AlbumsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //validation
+        $albums = new Album();
+        $albums->albumName = $request->albumName;
+        $albums->year = $request->year;
+        $albums->genre = $request->genre;
+        $albums->cover = $request->cover;
+        $albums->save();
+        return redirect('/album');
     }
 
     /**

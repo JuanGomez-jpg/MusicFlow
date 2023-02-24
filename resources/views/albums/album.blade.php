@@ -8,5 +8,16 @@
 </head>
 <body>
     <h1>Album</h1>
+
+    @foreach ($albums as $al)
+    <ul>
+        <img src="data:image/png;base64,{{ chunk_split(base64_encode($al->cover)) }}" height="300" width="300" />
+        <li> {{ $al -> albumName }} </li>
+        <li> {{ $al -> year }} </li>
+        <li> {{ $al -> genre }} </li>
+        
+    </ul>
+    @endforeach
+
 </body>
 </html>
