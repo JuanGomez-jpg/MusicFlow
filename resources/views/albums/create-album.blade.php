@@ -4,11 +4,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ asset('storage/css/formulario.css') }}">
     <title>Create Albums</title>
 </head>
 <body>
-        <h1>Create Album</h1>
-
+    <h1>Create Album</h1>
+    <div class="form">
         <form action="/albums" method="POST" enctype="multipart/form-data">
             @csrf
 
@@ -33,7 +34,8 @@
             <label for="coverName">Cover</label><br>
             <input type="file" name="coverName" id="coverName">
             <br>
-            <input type="submit" value="Guardar">
+            <input type="submit" id="Boton" value="Guardar">
         </form>
+    </div>
 </body>
 </html>
