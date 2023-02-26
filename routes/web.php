@@ -18,7 +18,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
+Route::resource('albums', AlbumsController::class);
 Route::get('albums/create', [AlbumsController::class, 'create']);
 Route::get('albums', [AlbumsController::class, 'index']);
 

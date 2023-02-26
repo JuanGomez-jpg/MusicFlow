@@ -7,6 +7,33 @@
     <title>Create Albums</title>
 </head>
 <body>
-        <h1>Create Album</h5>
+        <h1>Create Album</h1>
+
+        <form action="/albums" method="POST" enctype="multipart/form-data">
+            @csrf
+
+            @if ($errors -> any())
+                <div class="aler alert-danger">
+                    <ul>
+                        @foreach ($errors -> all() as $err)
+                            <li> {{ $err }} </li>
+                        @endforeach
+                    </ul>
+            @endif
+
+            <label for="albumName">Nombre</label><br>
+            <input type="text" name="albumName" id="albumName">
+            <br>
+            <label for="year">Año</label><br>
+            <input type="number" name="year" id="year">
+            <br>
+            <label for="genre">Género</label><br>
+            <input type="text" name="genre" id="genre">
+            <br>
+            <label for="coverName">Cover</label><br>
+            <input type="file" name="coverName" id="coverName">
+            <br>
+            <input type="submit" value="Guardar">
+        </form>
 </body>
 </html>

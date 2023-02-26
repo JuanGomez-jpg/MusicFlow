@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Albums;
 use Illuminate\Http\Request;
+use Image;
+use File;
 
 class AlbumsController extends Controller
 {
@@ -30,13 +32,45 @@ class AlbumsController extends Controller
     public function store(Request $request)
     {
         //validation
-        $albums = new Album();
+        $request->validate([
+            'albumName' => 'required|max:30',
+            'year' => 'required|integer|min:1500|max:2023',
+            'genre' => 'required|max:25',
+            'coverName' => 'required|file|mimes:jpg,png,jpeg,map|max:64'
+        ]);
+
+        //'coverName' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048'
+
+        
+        $albums = new Albums();
         $albums->albumName = $request->albumName;
         $albums->year = $request->year;
         $albums->genre = $request->genre;
-        $albums->cover = $request->cover;
+
+        if ($request->hasFile('coverName'))
+        {
+            $imageData = file_get_contents($request->file('coverName'));
+            $albums->coverName = $imageData;
+        }
+/*
+        $albums = new Albums();
+        $albums->albumName = $request->albumName;
+        $albums->year = $request->year;
+        $albums->genre = $request->genre;
+
+        if ($request->hasFile('coverName'))
+        {
+            $filename = $request->coverName->getClientOriginalName();
+            $path = $request->file('coverName')->storeAs('public/images', $filename);
+            $albums->coverName = $filename;
+        }*/
+
+
         $albums->save();
-        return redirect('/album');
+        
+        //Albums::create($request->all());
+
+        return redirect('/albums');
     }
 
     /**

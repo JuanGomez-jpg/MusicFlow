@@ -1,23 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Album</title>
+    <link rel="stylesheet" type="text/css" href="{{ asset('storage/css/albums.css') }}">
+    <title>Albums</title>
 </head>
 <body>
-    <h1>Album</h1>
-
+    <h1>Albums</h1>
+    <div class="row">
     @foreach ($albums as $al)
-    <ul>
-        <img src="data:image/png;base64,{{ chunk_split(base64_encode($al->cover)) }}" height="300" width="300" />
-        <li> {{ $al -> albumName }} </li>
-        <li> {{ $al -> year }} </li>
-        <li> {{ $al -> genre }} </li>
-        
-    </ul>
+    <div class="column">
+        <div class="card">
+            <img src="data:image/jpeg;base64,{{ base64_encode($al->coverName) }}" height="300" width="300" />
+            <!--<img src="{{ asset('storage/images/' . $al->coverName) }}" alt="{{ $al->coverName }}" height="300" width="300" />-->
+                <br><br><b> {{ $al -> albumName }}</b>
+                <br>{{ $al -> year }}
+                <br>{{ $al -> genre }}
+        </div>
+    </div>
     @endforeach
+    </div>
+
 
 </body>
 </html>
