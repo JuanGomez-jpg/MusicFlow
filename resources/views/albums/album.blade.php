@@ -14,10 +14,12 @@
     <div class="column">
         <div class="card">
             <img src="data:image/jpeg;base64,{{ base64_encode($al->coverName) }}" height="300" width="300" />
-            <!--<img src="{{ asset('storage/images/' . $al->coverName) }}" alt="{{ $al->coverName }}" height="300" width="300" />-->
                 <br><br><b> {{ $al -> albumName }}</b>
                 <br>{{ $al -> year }}
                 <br>{{ $al -> genre }}
+                <br>
+            <a href="/albums/{{ $al->id }}" >Ver</a>
+            <a href="/albums/{{ $al->id }}/edit">Editar</a>
         </div>
     </div>
     @endforeach

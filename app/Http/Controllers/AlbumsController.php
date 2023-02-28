@@ -39,9 +39,6 @@ class AlbumsController extends Controller
             'coverName' => 'required|file|mimes:jpg,png,jpeg,map|max:64'
         ]);
 
-        //'coverName' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048'
-
-        
         $albums = new Albums();
         $albums->albumName = $request->albumName;
         $albums->year = $request->year;
@@ -76,31 +73,40 @@ class AlbumsController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Albums $albums)
+    public function show(Albums $album)
     {
-        //
+        return view('albums.album-details', compact('album'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Albums $albums)
+    public function edit(Albums $album)
     {
-        //
+        return view('albums.edit-album'. compact('album'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Albums $albums)
+    public function update(Request $request, Albums $album)
     {
-        //
+        $album->albumName = $request->albumName;
+        $album->year = $request->year;
+        $album->genre = $request->genre;
+
+        if ($request->hasFile('coverName'))
+        {
+            $imageData = file_get_contents($request->file('coverName'));
+            $album->coverName = $imageData;
+        }
+        return redirect('/albums/' . $album->id);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Albums $albums)
+    public function destroy(Albums $album)
     {
         //
     }

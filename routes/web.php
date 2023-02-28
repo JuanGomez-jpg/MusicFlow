@@ -19,6 +19,6 @@ Route::get('/', function () {
 });
 
 Route::resource('albums', AlbumsController::class);
-Route::get('albums/create', [AlbumsController::class, 'create']);
-Route::get('albums', [AlbumsController::class, 'index']);
+//Route::get('albums/create', [AlbumsController::class, 'create']);
+//Route::get('albums', [AlbumsController::class, 'index']);
 
