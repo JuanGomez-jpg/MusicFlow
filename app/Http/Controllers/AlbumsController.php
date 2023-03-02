@@ -83,7 +83,7 @@ class AlbumsController extends Controller
      */
     public function edit(Albums $album)
     {
-        return view('albums.edit-album'. compact('album'));
+        return response(view('albums.edit-album', compact('album')));
     }
 
     /**
@@ -91,6 +91,14 @@ class AlbumsController extends Controller
      */
     public function update(Request $request, Albums $album)
     {
+        //validation
+        $request->validate([
+            'albumName' => 'required|max:30',
+            'year' => 'required|integer|min:1500|max:2023',
+            'genre' => 'required|max:25',
+            'coverName' => 'required|file|mimes:jpg,png,jpeg,map|max:64'
+        ]);
+
         $album->albumName = $request->albumName;
         $album->year = $request->year;
         $album->genre = $request->genre;
@@ -100,6 +108,8 @@ class AlbumsController extends Controller
             $imageData = file_get_contents($request->file('coverName'));
             $album->coverName = $imageData;
         }
+        $album -> save();
+
         return redirect('/albums/' . $album->id);
     }
 

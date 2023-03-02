@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="{{ asset('storage/css/formulario.css') }}">
+    <script type="text/javascript" src="{{ asset('storage/js/img.js') }}"></script>
     <title>Create Albums</title>
 </head>
 <body>
@@ -32,7 +33,9 @@
             <input type="text" name="genre" id="genre">
             <br>
             <label for="coverName">Cover</label><br>
-            <input type="file" name="coverName" id="coverName">
+            <input type="file" name="coverName" id="coverName" onChange="loadFile(event)">
+            <br>
+            <img id="output" width="300" height="300" />
             <br>
             <input type="submit" id="Boton" value="Guardar">
         </form>

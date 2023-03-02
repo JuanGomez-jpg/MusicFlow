@@ -18,8 +18,8 @@
                 <br>{{ $al -> year }}
                 <br>{{ $al -> genre }}
                 <br>
-            <a href="/albums/{{ $al->id }}" >Ver</a>
-            <a href="/albums/{{ $al->id }}/edit">Editar</a>
+            <a href="/albums/{{ $al->id }}" class="button">Ver</a>
+            <a href="/albums/{{ $al->id }}/edit" class="button">Editar</a>
         </div>
     </div>
     @endforeach

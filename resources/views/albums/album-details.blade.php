@@ -16,6 +16,8 @@
                 <br>{{ $album -> year }}
                 <br>{{ $album -> genre }}
                 <br>
+                <a href="/albums/" class="button">Inicio</a>
+                <a href="/albums/{{ $album->id }}/edit" class="button">Editar</a>
         </div>
     </div>
     </div>

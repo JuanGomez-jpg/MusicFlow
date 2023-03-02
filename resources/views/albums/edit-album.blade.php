@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="{{ asset('storage/css/formulario.css') }}">
+    <script type="text/javascript" src="{{ asset('storage/js/img.js') }}"></script>
     <title>Edit Album</title>
 </head>
 <body>
@@ -13,6 +14,15 @@
         <form action="/albums/{{$album->id}}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('patch')
+
+            @if ($errors -> any())
+                <div class="aler alert-danger">
+                    <ul>
+                        @foreach ($errors -> all() as $err)
+                            <li> {{ $err }} </li>
+                        @endforeach
+                    </ul>
+            @endif
 
             <label for="albumName">Nombre</label><br>
             <input type="text" name="albumName" id="albumName" value="{{ $album -> albumName }}">
@@ -24,7 +34,9 @@
             <input type="text" name="genre" id="genre" value="{{ $album -> genre }}">
             <br>
             <label for="coverName">Cover</label><br>
-            <input type="file" name="coverName" id="coverName" value="{{ $album -> coverName }}">
+            <input type="file" name="coverName" id="coverName" value="" onChange="loadFile(event)">
+            <br>
+            <img id="output" style="display: block;" src="data:image/jpeg;base64,{{ base64_encode($album -> coverName) }}" alt="img" width="300" height="300" />
             <br>
             <input type="submit" id="Boton" value="Guardar">
         </form>
