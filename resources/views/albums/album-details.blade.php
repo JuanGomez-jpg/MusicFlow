@@ -17,7 +17,14 @@
                 <br>{{ $album -> genre }}
                 <br>
                 <a href="/albums/" class="button">Inicio</a>
-                <a href="/albums/{{ $album->id }}/edit" class="button">Editar</a>
+                <a href="/albums/{{ $album->id }}/edit" class="button">Editar</a><br>
+                
+                <form action="{{ route('albums.destroy', $album) }}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="buttonDelete">Eliminar</button>
+                </form>
+
         </div>
     </div>
     </div>

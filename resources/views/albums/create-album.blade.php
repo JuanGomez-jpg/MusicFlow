@@ -24,13 +24,13 @@
             @endif
 
             <label for="albumName">Nombre</label><br>
-            <input type="text" name="albumName" id="albumName">
+            <input type="text" name="albumName" id="albumName" value="{{ old('albumName') }}">
             <br>
             <label for="year">Año</label><br>
-            <input type="number" name="year" id="year">
+            <input type="number" name="year" id="year" value="{{ old('year') }}">
             <br>
             <label for="genre">Género</label><br>
-            <input type="text" name="genre" id="genre">
+            <input type="text" name="genre" id="genre" value="{{ old('genre') }}">
             <br>
             <label for="coverName">Cover</label><br>
             <input type="file" name="coverName" id="coverName" onChange="loadFile(event)">

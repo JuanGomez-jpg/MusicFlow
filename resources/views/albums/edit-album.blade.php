@@ -25,13 +25,13 @@
             @endif
 
             <label for="albumName">Nombre</label><br>
-            <input type="text" name="albumName" id="albumName" value="{{ $album -> albumName }}">
+            <input type="text" name="albumName" id="albumName" value="{{ old('albumName') ?? $album -> albumName }}">
             <br>
             <label for="year">Año</label><br>
-            <input type="number" name="year" id="year" value="{{ $album -> year }}">
+            <input type="number" name="year" id="year" value="{{ old('year') ?? $album -> year }}">
             <br>
             <label for="genre">Género</label><br>
-            <input type="text" name="genre" id="genre" value="{{ $album -> genre }}">
+            <input type="text" name="genre" id="genre" value="{{ old('genre') ?? $album -> genre }}">
             <br>
             <label for="coverName">Cover</label><br>
             <input type="file" name="coverName" id="coverName" value="" onChange="loadFile(event)">
