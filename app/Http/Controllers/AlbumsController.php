@@ -33,9 +33,9 @@ class AlbumsController extends Controller
     {
         //validation
         $request->validate([
-            'albumName' => 'required|max:30',
+            'albumName' => 'required|max:70',
             'year' => 'required|integer|min:1500|max:2023',
-            'genre' => 'required|max:25',
+            'genre' => 'required|max:50',
             'coverName' => 'required|file|mimes:jpg,png,jpeg,map|max:64'
         ]);
 
@@ -93,9 +93,9 @@ class AlbumsController extends Controller
     {
         //validation
         $request->validate([
-            'albumName' => 'required|max:30',
+            'albumName' => 'required|max:70',
             'year' => 'required|integer|min:1500|max:2023',
-            'genre' => 'required|max:25',
+            'genre' => 'required|max:50',
             'coverName' => 'required|file|mimes:jpg,png,jpeg,map|max:64'
         ]);
 

@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('albums', function (Blueprint $table) {
             $table->id();
-            $table->string('albumName', 30);
+            $table->string('albumName', 70);
             $table->year('year');
-            $table->string('genre', 25);
+            $table->string('genre', 50);
             //$table->string('coverName');
             $table->binary('coverName');
             $table->timestamps();
