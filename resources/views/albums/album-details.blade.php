@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,8 +11,10 @@
     <div class="row">
     <div class="column">
         <div class="card">
-            <img src="data:image/jpeg;base64,{{ base64_encode($album->coverName) }}" height="300" width="300" />
+            <!-- <img src="data:image/jpeg;base64,{{ base64_encode($album->coverName) }}" height="300" width="300" /> -->
+            <img src="{{ asset('storage/images/'.$album->coverImg) }}" height="300" width="300" />
                 <br><br><b> {{ $album -> albumName }}</b>
+                <br>{{ $album -> artistName }}
                 <br>{{ $album -> year }}
                 <br>{{ $album -> genre }}
                 <br>

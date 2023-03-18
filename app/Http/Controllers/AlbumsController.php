@@ -31,14 +31,16 @@ class AlbumsController extends Controller
      */
     public function store(Request $request)
     {
-        //validation
-        $request->validate([
+        //validation Blob
+        /*$request->validate([
             'albumName' => 'required|max:70',
             'year' => 'required|integer|min:1500|max:2023',
             'genre' => 'required|max:50',
             'coverName' => 'required|file|mimes:jpg,png,jpeg,map|max:64'
-        ]);
+        ]);*/
 
+        // Blob
+        /*
         $albums = new Albums();
         $albums->albumName = $request->albumName;
         $albums->year = $request->year;
@@ -48,19 +50,31 @@ class AlbumsController extends Controller
         {
             $imageData = file_get_contents($request->file('coverName'));
             $albums->coverName = $imageData;
-        }
-/*
+        }*/
+
+        //Validation storage
+        $request->validate([
+            'albumName' => 'required|max:70',
+            'artistName' => 'required|max:50',
+            'year' => 'required|integer|min:1500|max:2023',
+            'genre' => 'required|max:50',
+            'coverImg' => 'required|image|mimes:jpeg,png,jpg|max:2048'
+        ]);
+
+
+        // Storage
         $albums = new Albums();
         $albums->albumName = $request->albumName;
+        $albums->artistName = $request->artistName;
         $albums->year = $request->year;
         $albums->genre = $request->genre;
 
-        if ($request->hasFile('coverName'))
+        if ($request->hasFile('coverImg'))
         {
-            $filename = $request->coverName->getClientOriginalName();
-            $path = $request->file('coverName')->storeAs('public/images', $filename);
-            $albums->coverName = $filename;
-        }*/
+            $filename = $request->coverImg->getClientOriginalName();
+            $path = $request->file('coverImg')->storeAs('public/images', $filename);
+            $albums->coverImg = $filename;
+        }
 
 
         $albums->save();
@@ -91,7 +105,8 @@ class AlbumsController extends Controller
      */
     public function update(Request $request, Albums $album)
     {
-        //validation
+        //Validation Blob
+        /*
         $request->validate([
             'albumName' => 'required|max:70',
             'year' => 'required|integer|min:1500|max:2023',
@@ -108,6 +123,30 @@ class AlbumsController extends Controller
             $imageData = file_get_contents($request->file('coverName'));
             $album->coverName = $imageData;
         }
+        */
+
+        //Validation storage
+        $request->validate([
+            'albumName' => 'required|max:70',
+            'artistName' => 'required|max:50',
+            'year' => 'required|integer|min:1500|max:2023',
+            'genre' => 'required|max:50',
+            'coverImg' => 'required|image|mimes:jpeg,png,jpg|max:2048'
+        ]);
+
+        $album->albumName = $request->albumName;
+        $album->artistName = $request->artistName;
+        $album->year = $request->year;
+        $album->genre = $request->genre;
+
+        if ($request->hasFile('coverImg'))
+        {
+            $filename = $request->coverImg->getClientOriginalName();
+            $path = $request->file('coverImg')->storeAs('public/images', $filename);
+            $album->coverImg = $filename;
+        }
+
+
         $album -> save();
 
         return redirect('/albums/' . $album->id);

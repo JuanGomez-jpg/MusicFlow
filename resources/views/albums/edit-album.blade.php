@@ -9,7 +9,7 @@
     <title>Edit Album</title>
 </head>
 <body>
-    <h1>Edite Album</h1>
+    <h1>Edit Album</h1>
     <div class="form">
         <form action="/albums/{{$album->id}}" method="POST" enctype="multipart/form-data">
             @csrf
@@ -27,16 +27,20 @@
             <label for="albumName">Nombre</label><br>
             <input type="text" name="albumName" id="albumName" value="{{ old('albumName') ?? $album -> albumName }}">
             <br>
+            <label for="artistName">Nombre del artista</label><br>
+            <input type="text" name="artistName" id="artistName" value="{{ old('artistName') ?? $album -> artistName }}">
+            <br>
             <label for="year">Año</label><br>
             <input type="number" name="year" id="year" value="{{ old('year') ?? $album -> year }}">
             <br>
             <label for="genre">Género</label><br>
             <input type="text" name="genre" id="genre" value="{{ old('genre') ?? $album -> genre }}">
             <br>
-            <label for="coverName">Cover</label><br>
-            <input type="file" name="coverName" id="coverName" value="" onChange="loadFile(event)">
+            <label for="coverImg">Cover</label><br>
+            <input type="file" name="coverImg" id="coverImg" value="" onChange="loadFile(event)">
             <br>
-            <img id="output" style="display: block;" src="data:image/jpeg;base64,{{ base64_encode($album -> coverName) }}" alt="img" width="300" height="300" />
+            <!-- <img id="output" style="display: block;" src="data:image/jpeg;base64,{{ base64_encode($album -> coverName) }}" alt="img" width="300" height="300" /> -->
+            <img id="output" style="display: block;" src="{{ asset('storage/images/'.$album->coverImg) }}" alt="{{ $album->coverImg }}" height="300" width="300" />
             <br>
             <input type="submit" id="Boton" value="Guardar">
         </form>

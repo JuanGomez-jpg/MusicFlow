@@ -16,8 +16,9 @@ return new class extends Migration
             $table->string('albumName', 70);
             $table->year('year');
             $table->string('genre', 50);
-            //$table->string('coverName');
-            $table->binary('coverName');
+            $table->string('coverImg');
+            //$table->binary('coverName');
+            $table->string('artistName', 50);
             $table->timestamps();
         });
     }
