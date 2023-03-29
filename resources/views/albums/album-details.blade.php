@@ -7,7 +7,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('storage/css/albums.css') }}">
 </head>
 <body>
-<h1>Album {{ $album->albumName }}</h1>
+<h1>{{ $album->albumName }}</h1>
     <div class="row">
     <div class="column">
         <div class="card">
