@@ -13,9 +13,10 @@ class Alert extends Component
     /**
      * Create a new component instance.
      */
-    public function __construct($tipo)
+    public function __construct()
     {
-        $this->tipo = $tipo;
+        //public function __construct($tipo)
+        //$this->tipo = $tipo;
     }
 
     /**
