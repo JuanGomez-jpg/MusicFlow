@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/albums.css') }}">
+    <!--<link rel="stylesheet" type="text/css" href="{{ asset('css/albums.css') }}">-->
     <link href="{{ asset('css/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
     <script src="{{ asset('js/bootstrap/bootstrap.min.js') }}"></script>
@@ -13,7 +13,6 @@
 </head>
 <body>
     <x-alert />
-    <h1>Albums</h1>
     <!--  
     <div class="row">
         @foreach ($albums as $al)
@@ -53,7 +52,8 @@
 </div>
 -->
 <div class="album py-3">
-  <div class="container">
+  <div class="container mt-5">
+    <h1>Albums <a href="/albums/create" class="btn btn-success">Añadir</a></h1>
     <div class="row">
       @foreach ($albums as $al)
         <div class="col-md-3">
@@ -65,15 +65,15 @@
                   <p class="card-text">{{ $al -> artistName }}</p>
                 </div>
                 <div class="card-footer bg-transparent">
-                  <a href="/albums/{{ $al->id }}" class="btn btn-outline-primary">Ver</a>
-                  <a href="/albums/{{ $al->id }}/edit" class="btn btn-outline-warning">Editar</a>
+                  <a href="/albums/{{ $al->id }}" class="btn btn-primary">Ver</a>
+                  <a href="/albums/{{ $al->id }}/edit" class="btn btn-warning">Editar</a>
                 </div>
             </div>
           </div>
         </div>
       @endforeach
     </div>
-   </div>
+  </div>
 </div>
 
 

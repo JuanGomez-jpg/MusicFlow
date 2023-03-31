@@ -3,82 +3,27 @@ body{
     font-family: Arial, Helvetica, sans-serif;  
 }
 
-img
-{
-    display: none;
-}
-
-.formulario
-{
-    box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
-    padding: 10px;
-    text-align: justify;
-    overflow: hidden;
-    flex-direction: column;
-    background-color: white;
-    border-radius: 0.40rem;
-    margin: 17px;
-}
-
-.formulario h1
-{
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    font-style: italic;
-    text-align: center;
-    font-size: 30px;
-}
-
 #albumName,
 #year,
 #genre,
-#artistName
-{
-    width: 100%;
-    padding: 10px 20px;
-    margin: 20px 0;
-    box-sizing: border-box;
-    border: 1.5px solid rgb(222, 222, 222);
-    border-radius: 4px;
-}
-
-#albumName,
-#year,
-#genre,
-#artistName
-{
-    border: 1.5px solid rgb(86, 214, 82);
-    border-radius: 0.5em;
-    width: 100%;
-}
-
-#Boton
-{
-    background-color: rgb(87, 29, 0);
-    border: none;
-    border-radius: 0.2em;
-    color: white;
-    padding: 10px 25px;
-    text-align: center;
-    display: inline-block;
-    font-size: 20px;
-    margin: 10px 20px;
-}
-
+#artistName,
 #coverImg
 {
-    background-color: rgb(180, 60, 0);
-    border: none;
-    border-radius: 0.2em;
-    color: white;
-    padding: 10px 5px;
-    text-align: center;
-    display: inline-block;
-    font-size: 15px;
-    margin: 10px 0px;
+    width: 100%;
+    padding: 5px 10px;
+    margin: 10px 0;
+    box-sizing: border-box;
+    border: 1.5px solid rgb(222, 222, 222);
+    border-radius: 2px;
 }
 
-#Boton:hover
+#albumName,
+#year,
+#genre,
+#artistName,
+#coverImg
 {
-    background-color: rgb(0, 48, 0);
-    color: white;
+    border: 1.5px solid rgb(145, 145, 145);
+    border-radius: 0.5em;
+    width: 100%;
 }
