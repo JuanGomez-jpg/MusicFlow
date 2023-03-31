@@ -7,9 +7,8 @@ use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
 
-class Alert extends Component
+class NavbarMain extends Component
 {
-    public $tipo;
     /**
      * Create a new component instance.
      */
@@ -24,6 +23,6 @@ class Alert extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.alert');
+        return view('components.navbarmain');
     }
 }

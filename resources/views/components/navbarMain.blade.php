@@ -31,7 +31,14 @@
                     </a>
                     <ul class="dropdown-menu bg-secondary" aria-labelledby="navbarDropdown">
                         <li>
-                            <a class="dropdown-item" href="">Cerrar sesión</a>
+                            <!-- Authentication -->
+                            <form method="POST" action="{{ route('logout') }}" x-data>
+                            @csrf
+                            <a class="dropdown-item" href="{{ route('logout') }}"
+                                    @click.prevent="$root.submit();">
+                                    {{ __('Cerrar sesión') }}
+                            </a>
+                            </form>
                         </li>
                         <li>
                             <a class="dropdown-item" href="">Ajustes</a>

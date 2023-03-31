@@ -8,12 +8,16 @@
     <!--<link rel="stylesheet" type="text/css" href="{{ asset('css/albums.css') }}">-->
     <link href="{{ asset('css/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
-    <script src="{{ asset('js/bootstrap/bootstrap.min.js') }}"></script>
     <script defer="" src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js" integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous"></script>
+    <!-- Scripts -->
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+
+    <!-- Styles -->
+    @livewireStyles
     <title>Albums</title>
 </head>
 <body>
-    <x-alert />
+    <x-navbarmain />
     <!--  
     <div class="row">
         @foreach ($albums as $al)
@@ -59,7 +63,7 @@
       @foreach ($albums as $al)
         <div class="col-md-3">
           <div class="card shadow p-3 mb-5 bg-white rounded">
-            <div class="text-center">
+            <div class="justify-content-center text-center">
               <img src="{{ asset('storage/images/'.$al->coverImg) }}" class="card-img-top" style="max-width: 40%; height: auto;" />
                 <div class="card-body" style="height: 7rem;">
                   <h5 class="card-title">{{ $al -> albumName }}</h5>

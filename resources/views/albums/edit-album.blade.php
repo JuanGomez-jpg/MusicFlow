@@ -63,7 +63,7 @@
                 <br>
                 <!-- Submit button -->
                 <input class="btn btn-success" type="submit" id="Boton" value="Guardar">
-                <a href="/albums/" class="btn btn-danger">Cancelar</a>
+                <a href="/albums" class="btn btn-danger">Cancelar</a>
             </div>
         </form>
     </div>

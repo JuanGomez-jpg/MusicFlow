@@ -48,7 +48,7 @@
                     <p class="card-text">{{ $album -> genre }}</p>
                 </div>
                 <div class="card-footer bg-transparent">
-                    <a href="/albums/" class="btn btn-primary">Inicio</a>
+                    <a href="/albums" class="btn btn-primary">Inicio</a>
                     <a href="/albums/{{ $album->id }}/edit" class="btn btn-warning">Editar</a>
                     <form action="{{ route('albums.destroy', $album) }}" method="POST">
                         @csrf
